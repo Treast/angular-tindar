@@ -1,27 +1,37 @@
 import { Injectable } from '@angular/core';
+import { User } from './user';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private token: string = null;
+  private user: User = null;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  isAuthenticated() {
-    return this.token !== null;
+  isAuthenticated(): boolean {
+    return this.user && this.user.token !== null;
   }
 
-  getToken() {
-    return this.token;
+  getToken(): string {
+    return this.user.token;
   }
 
-  login(token) {
-    this.token = token;
+  setToken(token: string) {
+    this.user.token = token;
+  }
+
+  login(user: User): Observable<User> {
+    return this.http.post<User>('http://www.tindart.localhost/login', {
+      email: user.email,
+      password: user.password
+    });
   }
 
   logout() {
-    this.token = null;
+    this.user.token = null;
   }
 }
