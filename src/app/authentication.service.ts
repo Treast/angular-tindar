@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
 
-  private user: User = null;
+  private user: User = new User('', '', '');
 
   constructor(private http: HttpClient) { }
 
   isAuthenticated(): boolean {
-    return this.user && this.user.token !== null;
+    return this.user && this.getToken() !== '';
   }
 
   getToken(): string {
