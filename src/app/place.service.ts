@@ -14,4 +14,10 @@ export class PlaceService {
   getPlaces(): Observable<Place[]> {
     return this.http.get<Place[]>(`${Config.BASE_URL}/places`, this.authenticationService.getAuthenticationHeaders());
   }
+
+
+  getPlace(placeUuid: string): Observable<Place> {
+    console.log('GetPlace');
+    return this.http.get<Place>(`${Config.BASE_URL}/places/${placeUuid}`, this.authenticationService.getAuthenticationHeaders());
+  }
 }

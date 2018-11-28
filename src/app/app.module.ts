@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PlacesComponent } from './places/places.component';
+import { PlaceComponent } from './place/place.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    PlacesComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,

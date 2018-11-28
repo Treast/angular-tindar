@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.userService.getUsers();
-    console.log(this.placeService);
     this.places = this.placeService.getPlaces();
   }
 
