@@ -13,15 +13,16 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   isAuthenticated(): boolean {
-    return this.user && this.getToken() !== '';
+    return this.user && this.getToken() && this.getToken() !== '';
   }
 
   getToken(): string {
-    return this.user.token;
+    return this.user.token || localStorage.getItem('token');
   }
 
   setToken(token: string) {
     this.user.token = token;
+    localStorage.setItem('token', token);
   }
 
   getAuthenticationHeaders() {
