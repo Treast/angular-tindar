@@ -34,7 +34,7 @@ export class AuthenticationService {
   }
 
   login(user: User): Observable<User> {
-    return this.http.post<User>('http://www.tindart.localhost/login', {
+    return this.http.post<User>('http://127.0.0.1:8000/login', {
       email: user.email,
       password: user.password
     });
