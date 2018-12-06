@@ -12,3 +12,10 @@ header img {
 	width: 200px;
 	height: auto;
 }
+
+@media all and (max-width: 1023px) {
+  header {
+    height: 235px;
+    margin-bottom: -100px;
+  }
+}

@@ -28,10 +28,17 @@ ul.list-image {
       background-color: #fff;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
       border-radius: 15px;
+      p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #A3A3A3;
+      }
       h2 {
         font-size: 16px;
         font-weight: 600;
         color: black;
+        margin: 0;
       }
     }
   }
