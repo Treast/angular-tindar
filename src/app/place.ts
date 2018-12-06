@@ -1,3 +1,5 @@
+import {Event} from './event';
+
 export class Place {
   uuid: string;
   name: string;
@@ -5,4 +7,5 @@ export class Place {
   latitude: number;
   longitude: number;
   image: string;
+  events: Event[];
 }

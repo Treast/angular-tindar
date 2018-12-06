@@ -1,4 +1,11 @@
-.places {
+.place-header-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 100px;
+}
+
+ul.list-image {
   list-style: none;
   padding: 0;
 
@@ -27,5 +34,16 @@
         color: black;
       }
     }
+  }
+}
+
+@media all and (max-width: 1023px) {
+  .place-header-image {
+    height: 235px;
+    margin-bottom: -100px;
+  }
+
+  ul.list-image .place .place-image {
+    height: 170px;
   }
 }

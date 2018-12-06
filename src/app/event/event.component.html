@@ -1,0 +1,15 @@
+<div class="place-header-image" [ngStyle]="{'background-image': 'url('+event?.place.image+')'}"></div>
+
+<main>
+  <div class="content">
+    <h1>{{event?.name}}</h1>
+    <p class="sub">{{getEventDate(event?.event_date)}}<br /><span class="red">{{event?.place.name}}</span></p>
+    <h3>Description</h3>
+    <p>{{event?.description}}</p>
+    <div class="take-place">
+      Prendre une place
+    </div>
+    <h3>Où ça se trouve ?</h3>
+    <div id="map" style="width: 100%; height: 200px"></div>
+  </div>
+</main>

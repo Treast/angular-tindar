@@ -1,3 +1,22 @@
-<h2>{{ (place | async)?.name }}</h2>
+<div *ngIf="place | async as p">
+  <div class="place-header-image" [ngStyle]="{'background-image': 'url('+p.image+')'}"></div>
 
-<p>{{ (place | async)?.address }}</p>
+  <main>
+    <div class="content">
+      <h1>{{p.name}}</h1>
+      <p>{{p.address}}</p>
+      <h1>Événements</h1>
+      <ul class="list-image">
+        <li class="place" *ngFor="let event of p.events">
+          <a [routerLink]="'/places/' + p.uuid + '/events/' + event.uuid">
+            <div class="place-image" [ngStyle]="{'background-image': 'url('+p.image+')'}">
+            </div>
+            <div class="place-name">
+              <h2>{{ event.name }}</h2>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+</div>

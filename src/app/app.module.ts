@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PlacesComponent } from './places/places.component';
 import { PlaceComponent } from './place/place.component';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PlaceComponent } from './place/place.component';
     HomeComponent,
     LoginComponent,
     PlacesComponent,
-    PlaceComponent
+    PlaceComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
