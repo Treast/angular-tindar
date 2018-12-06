@@ -1,9 +1,15 @@
+<a [routerLink]="'/places/' + event?.place.uuid" class="back-button">
+  <svg style="width:35px;height:35px" viewBox="0 0 24 24">
+      <path fill="#FFF" d="M21,11H6.83L10.41,7.41L9,6L3,12L9,18L10.41,16.58L6.83,13H21V11Z" />
+  </svg>
+</a>
+
 <div class="place-header-image" [ngStyle]="{'background-image': 'url('+event?.place.image+')'}"></div>
 
 <main>
   <div class="content">
     <h1>{{event?.name}}</h1>
-    <p class="sub">{{getEventDate(event?.event_date)}}<br /><span class="red">{{event?.place.name}}</span></p>
+    <p class="sub">{{getEventDate(event?.event_date)}}<br /><a [routerLink]="'/places/' + event?.place.uuid" class="red">{{event?.place.name}}</a></p>
     <h3>Description</h3>
     <p>{{event?.description}}</p>
     <div class="take-place">
