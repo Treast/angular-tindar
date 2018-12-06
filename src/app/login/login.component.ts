@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +23,19 @@ export class LoginComponent implements OnInit {
       .subscribe((user: User) => {
         console.log('Login: ', user);
         this.authenticationService.setToken(user.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/']).then(() => {
+          Swal({
+            title: 'Connecté',
+            text: 'Vous êtes connecté.',
+            type: 'success',
+          });
+        });
       }, (error) => {
-        console.error(error);
+        Swal({
+          title: 'Erreur',
+          text: 'Mauvais email ou mot de passe.',
+          type: 'error',
+        });
       });
   }
 
