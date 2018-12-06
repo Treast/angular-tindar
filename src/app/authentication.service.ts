@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Config } from './config';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class AuthenticationService {
   }
 
   login(user: User): Observable<User> {
-    return this.http.post<User>('http://127.0.0.1:8000/login', {
+    return this.http.post<User>(`${Config.BASE_URL}/login`, {
       email: user.email,
       password: user.password
     });

@@ -4,4 +4,5 @@ export class Place {
   address: string;
   latitude: number;
   longitude: number;
+  image: string;
 }

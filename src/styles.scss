@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 @import "styles/components/inputs";
 
 @import "styles/base/header";
 @import "styles/base/body";
+
+@import "styles/modules/places";
