@@ -14,4 +14,9 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${Config.BASE_URL}/users`, this.authenticationService.getAuthenticationHeaders());
   }
+
+  getUser(): Observable<User> {
+    return this.http.get<User>(`${Config.BASE_URL}/users/${this.authenticationService.getUuid()}`,
+      this.authenticationService.getAuthenticationHeaders());
+  }
 }

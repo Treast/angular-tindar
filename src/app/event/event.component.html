@@ -30,5 +30,6 @@
         {{ user.email }}
       </li>
     </ul>
+    <p *ngIf="event?.participants.length == 0">Aucun participant</p>
   </div>
 </main>

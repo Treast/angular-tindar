@@ -18,7 +18,8 @@ export class AddEventComponent implements OnInit {
   place: Observable<Place>;
   event: Event = new Event();
 
-  constructor(private route: ActivatedRoute, private placeService: PlaceService, private eventService: EventService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private placeService: PlaceService,
+              private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
     this.placeUuid = this.route.snapshot.paramMap.get('uuid');
