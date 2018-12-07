@@ -3,13 +3,14 @@ import { User } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Config } from './config';
+import { Event } from './event';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private user: User = new User('', '', '');
+  private user: User = new User('', '', '', '');
 
   constructor(private http: HttpClient) { }
 
@@ -44,6 +45,7 @@ export class AuthenticationService {
 
   login(user: User): Observable<User> {
     return this.http.post<User>(`${Config.BASE_URL}/login`, {
+      uuid: user.uuid,
       email: user.email,
       password: user.password
     });

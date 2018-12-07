@@ -8,6 +8,7 @@ import { PlacesComponent } from './places/places.component';
 import { PlaceComponent } from './place/place.component';
 import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './add-event/add-event.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,16 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [NotLoggedInGuard]
+  },
+  {
+    path: 'users',
+    canActivate: [LoggedInGuard],
+    children: [
+      {
+        path: ':uuid',
+        component: UserComponent
+      }
+    ]
   }
 ];
 

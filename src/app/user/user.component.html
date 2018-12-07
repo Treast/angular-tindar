@@ -1,0 +1,18 @@
+<header><a [routerLink]="'/'"><img src="assets/tindart-white.png" alt="" /></a></header>
+ <a [routerLink]="'/users/' + uuid"><img class="user-icon" src="assets/user.svg" alt="User Icon"></a>
+
+<main>
+  <div class="content">
+    <h1>Mes évènements</h1>
+
+    <ul *ngIf="events" class="list-image">
+		<li class="place" *ngFor="let event of events">
+          <div class="event">
+            <h2>{{ event.name }}</h2>
+			<p>{{ event.description }}</p>
+			<p>{{ event.event_date }}</p>
+		  </div>
+      </li>
+    </ul>
+  </div>
+</main>

@@ -15,13 +15,17 @@ export class HomeComponent implements OnInit, AfterViewChecked {
 
   users: Observable<User[]>;
   places: Observable<Place[]>;
+  uuid: String;
   userLocation: any;
 
-  constructor(private userService: UserService, private placeService: PlaceService) { }
+  public user: User = new User('', '', '', '');
+
+  constructor(private userService: UserService, private placeService: PlaceService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.users = this.userService.getUsers();
     this.places = this.placeService.getPlaces();
+    this.uuid = this.authenticationService.getUuid();
   }
 
   ngAfterViewChecked(): void {

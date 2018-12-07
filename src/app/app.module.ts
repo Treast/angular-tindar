@@ -11,6 +11,7 @@ import { PlacesComponent } from './places/places.component';
 import { PlaceComponent } from './place/place.component';
 import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './add-event/add-event.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddEventComponent } from './add-event/add-event.component';
     PlacesComponent,
     PlaceComponent,
     EventComponent,
-    AddEventComponent
+    AddEventComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

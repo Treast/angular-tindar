@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  private user: User = new User('', '', '');
+  private user: User = new User('', '', '', '');
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.user)
       .subscribe((user: User) => {
         console.log('Login: ', user);
-        this.authenticationService.setUuid(user.uuid);
         this.authenticationService.setToken(user.token);
+        this.authenticationService.setUuid(user.uuid);
         this.router.navigate(['/']).then(() => {
           Swal({
             title: 'Connecté',
