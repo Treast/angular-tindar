@@ -9,6 +9,7 @@ import { PlaceComponent } from './place/place.component';
 import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { UserComponent } from './user/user.component';
+import { AroundMeComponent } from './around-me/around-me.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'places',
     canActivate: [LoggedInGuard],
     children: [
+      {
+        path: 'around',
+        component: AroundMeComponent
+      },
       {
         path: ':uuid',
         children: [

@@ -12,6 +12,7 @@ import { PlaceComponent } from './place/place.component';
 import { EventComponent } from './event/event.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { UserComponent } from './user/user.component';
+import { AroundMeComponent } from './around-me/around-me.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserComponent } from './user/user.component';
     PlaceComponent,
     EventComponent,
     AddEventComponent,
-    UserComponent
+    UserComponent,
+    AroundMeComponent
   ],
   imports: [
     BrowserModule,

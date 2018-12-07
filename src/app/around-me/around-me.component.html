@@ -1,21 +1,16 @@
 <header>
+  <a [routerLink]="'/'" class="back-button">
+    <svg style="width:35px;height:35px" viewBox="0 0 24 24">
+      <path fill="#FFF" d="M21,11H6.83L10.41,7.41L9,6L3,12L9,18L10.41,16.58L6.83,13H21V11Z" />
+    </svg>
+  </a>
   <img src="assets/tindart-white.png" alt="" />
   <a [routerLink]="'/users/' + uuid"><img class="user-icon" src="assets/user.svg" alt="User Icon"></a>
 </header>
 
-<div id="fab">
-  <a [routerLink]="'/places/around'">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" version="1.1">
-      <g id="surface1">
-        <path style=" " fill="#ffffff" d="M 25 2 C 12.308594 2 2 12.308594 2 25 C 2 37.691406 12.308594 48 25 48 C 37.691406 48 48 37.691406 48 25 C 48 12.308594 37.691406 2 25 2 Z M 25 4 C 36.609375 4 46 13.390625 46 25 C 46 36.609375 36.609375 46 25 46 C 13.390625 46 4 36.609375 4 25 C 4 13.390625 13.390625 4 25 4 Z M 36 14 L 10 26 L 24 26 L 24 40 Z "></path>
-      </g>
-    </svg>
-  </a>
-</div>
-
 <main>
   <div class="content">
-    <h1>Lieux culturels</h1>
+    <h1>Lieux culturels autour de vous</h1>
     <ul *ngIf="(places | async)" class="list-image">
       <li class="place" *ngFor="let place of (places | async)">
         <a [routerLink]="'/places/' + place.uuid">
