@@ -7,7 +7,15 @@
   </a>
 
   <div class="place-header-image" [ngStyle]="{'background-image': 'url('+p.image+')'}"></div>
-
+  <div id="fab">
+    <a [routerLink]="'/places/' + p.uuid + '/events/new'">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" version="1.1">
+        <g id="surface1">
+          <path style="" fill="#ffffff" d="M 23 9 L 23 23 L 9 23 L 9 27 L 23 27 L 23 41 L 27 41 L 27 27 L 41 27 L 41 23 L 27 23 L 27 9 Z "></path>
+        </g>
+      </svg>
+    </a>
+  </div>
   <main>
     <div class="content">
       <h1>{{p.name}}</h1>

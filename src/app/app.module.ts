@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlacesComponent } from './places/places.component';
 import { PlaceComponent } from './place/place.component';
 import { EventComponent } from './event/event.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EventComponent } from './event/event.component';
     LoginComponent,
     PlacesComponent,
     PlaceComponent,
-    EventComponent
+    EventComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,

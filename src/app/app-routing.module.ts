@@ -7,6 +7,7 @@ import { NotLoggedInGuard } from './not-logged-in.guard';
 import { PlacesComponent } from './places/places.component';
 import { PlaceComponent } from './place/place.component';
 import { EventComponent } from './event/event.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
           {
             path: 'events',
             children: [
+              {
+                path: 'new',
+                component: AddEventComponent
+              },
               {
                 path: ':eventUuid',
                 component: EventComponent
