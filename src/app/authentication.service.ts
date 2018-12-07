@@ -26,6 +26,14 @@ export class AuthenticationService {
     localStorage.setItem('token', token);
   }
 
+  setUuid(uuid: string) {
+    localStorage.setItem('uuid', uuid);
+  }
+
+  getUuid() {
+    return localStorage.getItem('uuid') || null;
+  }
+
   getAuthenticationHeaders() {
     return {
       headers: new HttpHeaders({

@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.user)
       .subscribe((user: User) => {
         console.log('Login: ', user);
+        this.authenticationService.setUuid(user.uuid);
         this.authenticationService.setToken(user.token);
         this.router.navigate(['/']).then(() => {
           Swal({

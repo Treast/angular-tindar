@@ -70,7 +70,38 @@ export class EventComponent implements OnInit {
           type: 'error',
           text: 'Une erreur s\'est produite.',
           title: 'Erreur'
-        })
+        });
       });
+  }
+
+  onRemoveUserToEvent() {
+    console.log('Click');
+    this.eventService.deleteEventUser(this.event)
+      .subscribe((event: Event) => {
+        console.log('Event', event);
+        Swal({
+          type: 'success',
+          text: 'Vous êtes bien désinscrit à cet événement.',
+          title: 'Succès'
+        }).then(() => {
+          this.event = event;
+        });
+      }, error => {
+        console.log('Error', error);
+        Swal({
+          type: 'error',
+          text: 'Une erreur s\'est produite.',
+          title: 'Erreur'
+        });
+      });
+  }
+
+  isParticipant(event) {
+    for (const participant of event.participants) {
+      if (participant.uuid === this.authenticationService.getUuid()) {
+        return true;
+      }
+    }
+    return false;
   }
 }

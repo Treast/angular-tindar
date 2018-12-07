@@ -33,4 +33,9 @@ export class EventService {
     return this.http.post<Event>(`${Config.BASE_URL}/places/${event.place.uuid}/events/${event.uuid}/users`,
       {}, this.authenticationService.getAuthenticationHeaders());
   }
+
+  deleteEventUser(event: Event): Observable<Event> {
+    return this.http.delete<Event>(`${Config.BASE_URL}/places/${event.place.uuid}/events/${event.uuid}/users`,
+      this.authenticationService.getAuthenticationHeaders());
+  }
 }
