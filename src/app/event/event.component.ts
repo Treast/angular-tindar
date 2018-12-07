@@ -6,6 +6,8 @@ import { Event } from '../event';
 import * as moment from 'moment';
 import * as L from 'leaflet';
 import 'moment/locale/fr';
+import Swal from 'sweetalert2';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-event',
@@ -18,7 +20,7 @@ export class EventComponent implements OnInit {
   event$: Observable<Event>;
   map: any;
 
-  constructor(private route: ActivatedRoute, private eventService: EventService) { }
+  constructor(private route: ActivatedRoute, private eventService: EventService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     moment.locale('fr');
@@ -48,5 +50,27 @@ export class EventComponent implements OnInit {
         L.marker([event.place.latitude, event.place.longitude], {icon: myIcon}).bindPopup(event.place.name).addTo(this.map);
       }
     });
+  }
+
+  onAddUserToEvent() {
+    console.log('Click');
+    this.eventService.postEventUser(this.event)
+      .subscribe((event: Event) => {
+        console.log('Event', event);
+        Swal({
+          type: 'success',
+          text: 'Vous êtes bien inscrit à cet événement.',
+          title: 'Succès'
+        }).then(() => {
+          this.event = event;
+        });
+      }, error => {
+        console.log('Error', error);
+        Swal({
+          type: 'error',
+          text: 'Une erreur s\'est produite.',
+          title: 'Erreur'
+        })
+      });
   }
 }

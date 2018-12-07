@@ -6,6 +6,7 @@ import { Place } from './place';
 import { Event } from './event';
 import { Config } from './config';
 import * as moment from 'moment';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,10 @@ export class EventService {
       description: event.description,
       place_uuid: placeUuid
     }, this.authenticationService.getAuthenticationHeaders());
+  }
+
+  postEventUser(event: Event): Observable<Event> {
+    return this.http.post<Event>(`${Config.BASE_URL}/places/${event.place.uuid}/events/${event.uuid}/users`,
+      {}, this.authenticationService.getAuthenticationHeaders());
   }
 }

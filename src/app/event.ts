@@ -1,4 +1,5 @@
 import { Place } from './place';
+import { User } from './user';
 
 export class Event {
   uuid: string;
@@ -6,4 +7,5 @@ export class Event {
   event_date: string;
   description: string;
   place: Place;
+  participants: User[];
 }
